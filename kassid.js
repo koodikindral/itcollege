@@ -12,5 +12,14 @@ $(function() {
                 src: 'https://media.giphy.com/media/' + picture.id + '/giphy.gif'
             }).height(200));
         });
+        setInterval(shuffleCats, 100);
     });
 });
+
+function shuffleCats() {
+    $("#kassipildid").each(function () {
+        var div = $(this).find('img').remove();
+        div.sort(function () { return Math.floor(Math.random() * div.length); });
+        div.appendTo(this);
+    });
+}
